@@ -1,0 +1,50 @@
+<% include header %>
+<% if (data) { %>
+<div class="pure-g">
+<div class="pure-u-1-1" id="header">
+	<p>Vossenjacht CDW</p>
+</div>
+</div>
+<div class="pure-g">
+	<div class="oranje blokje pure-u-1-2" id="groep">
+		<p>
+			<i class="fa fa-users fa-4x" aria-hidden="true"></i>
+		</p>
+		<p>groep <%=data.groep %></p>
+	</div>
+	<div class="blauw blokje pure-u-1-2" id="ranglijst">
+		<p>
+			<i class="fa fa-list fa-4x" aria-hidden="true"></i>
+		</p>    			
+		<p><a href="ranglijst"><%=data.plaats %><sup>e</sup> plaats</a></p>
+	</div>
+</div>
+<div class="pure-g">
+   	<div class="groen blokje pure-u-1-2">
+		<p>
+			<i class="fa fa-qrcode fa-4x" aria-hidden="true"></i>
+		</p>
+		<p><%=data.vossenGescand %> / <%=data.vossenTotaal %> vossen</p>
+	</div>	
+    <div class="rood blokje pure-u-1-2">
+        <p>
+            <i class="fa fa-clock-o fa-4x" aria-hidden="true"></i>
+        </p>                
+        <p>nog <%=data.tijdResterend %> minuten</p>
+    </div>  
+</div>
+<% } %>
+<% if (bericht) { %>
+<div id="modal">
+    
+    <button class="pure-button" id="sluiten">
+    <i class="fa fa-close"></i>
+    	Sluiten
+	</button>
+    <div id="overlayInhoud">
+        <h1><%=bericht.titel %></h1>
+        <p><%=bericht.inhoud %></p>
+    </div>
+</div>
+<% } %>
+<% include footer %>

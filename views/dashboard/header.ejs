@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="../dashboard/bootstrap/favicon.ico">
+		<title>Dashboard | Vossenjacht CDW</title>
+		<link href="/vossenjacht/dashboard/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="/vossenjacht/dashboard/dashboard.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Vossenjacht CDW</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+				<% if(typeof user != 'undefined') {%>
+		          <ul class="nav navbar-nav navbar-right">
+		            <li><a href="/vossenjacht/dash/instellingen">Instellingen</a></li>
+		          </ul>
+		          <% }%>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+				<% if(typeof user != 'undefined') {%>
+					<ul class="nav nav-sidebar">
+						<li><a href="/vossenjacht/dash">Overzicht</a></li>
+					 </ul>
+					<ul class="nav nav-sidebar">
+						<li><a href="/vossenjacht/dash/vossen">Vossen</a></li>
+						<li><a href="/vossenjacht/dash/groepen">Groepen</a></li>
+						<li><a href="/vossenjacht/dash/vangsten">Vangsten</a></li>
+					</ul>
+					
+					<ul class="nav nav-sidebar">
+						<li><a href="/vossenjacht/dash/logout">Uitloggen</a></li>
+					</ul>
+				<% }%>
+				</div>
+				<!-- EINDE HEADER -->

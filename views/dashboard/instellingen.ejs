@@ -1,0 +1,20 @@
+<% include header %>
+<!-- CONTENT START HIER -->
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<h1 class="page-header">Instellingen</h1>
+	<div class="row">
+		<div class="col-xs-6 col-sm-3">
+			<form id="instellingen">
+				<div class="form-group">
+					<label for="eindtijd">Eindtijd spel:</label>
+  					<input type="time" name="eindtijd" id="eindtijd" value="<%=eindtijd %>">
+				</div>
+				<button type="submit" class="btn btn-default" id="instellingen-opslaan">Opslaan</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- EINDE CONTENT -->
+<% include footer %>

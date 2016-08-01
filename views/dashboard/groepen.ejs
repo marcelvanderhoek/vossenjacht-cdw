@@ -1,0 +1,29 @@
+<% include header %>
+<!-- CONTENT START HIER -->
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<h1 class="page-header">Groepen</h1>
+	<div class="table-responsive">
+		<table class="table table-striped" id="groepen">
+			<thead>
+				<tr>
+					<th>Rang</th>
+					<th>Groep</th>
+					<th>Vangsten</th>
+				</tr>
+			</thead>
+			<tbody class="groepen">
+				<% for(var i=0; i<groepen.length; i++) { %>
+				    <tr>
+				    	<td><%=groepen[i].rank %></td>
+				    	<td><%=groepen[i].nummer %></td>
+				    	<td><%=groepen[i].vangsten %></td>
+				    </tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- EINDE CONTENT -->
+<% include footer %>

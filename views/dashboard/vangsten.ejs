@@ -1,0 +1,42 @@
+<% include header %>
+<!-- CONTENT START HIER -->
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<h1 class="page-header">Vangsten</h1>
+	<div class="table-responsive">
+		<table class="table table-striped" id="vangsten">
+			<thead>
+				<tr>
+					<th>Groep</th>
+					<th>Vos</th>
+					<th>Tijd</th>
+				</tr>
+			</thead>
+			<tbody class="vangsten">
+				<% for(var i=0; i<vangsten.length; i++) { %>
+				    <tr>
+				    	<td><%=vangsten[i].groepId %></td>
+				    	<td><%=vangsten[i].vosId %></td>
+				    	<% 
+				    	var tijd = new Date(vangsten[i].tijd); 
+				    	function addZero(i) {
+				    	    if (i < 10) {
+				    	        i = "0" + i;
+				    	    }
+				    	    return i;
+				    	}
+
+			    	    var u = addZero(tijd.getHours());
+			    	    var m = addZero(tijd.getMinutes());
+			    	    var s = addZero(tijd.getSeconds());
+				    	%>
+				        <td><%=u+':'+m+':'+s %></td>
+				    </tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- EINDE CONTENT -->
+<% include footer %>

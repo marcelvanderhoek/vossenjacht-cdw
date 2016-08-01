@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Vossenjacht API</title>
+   <style type="text/css">body{margin:1em auto;max-width:40em;padding:0 .62em;font:1.2em/1.62em sans-serif;}h1,h2,h3,h4{line-height:1.2em;border-bottom:1px solid #eee;}code, samp {font-size: 1em;line-height: .25em;}pre{background-color: #f2f2f2;}@media print{body{max-width:none}}</style>
+</head>
+<body>
+   <article>
+      <header>
+         <h1>Vossenjacht API</h1>
+      </header>
+      <section>
+         <h2>Endpoints</h2>
+         <h3>GET</h3>
+         <ul>
+            <li><a href="#get-vossen">http://37.97.190.125/vossenjacht/api/vossen</a></li>
+            <li><a href="#get-groepen">http://37.97.190.125/vossenjacht/api/groepen</a></li>
+            <li><a href="#get-stand">http://37.97.190.125/vossenjacht/api/stand</a></li>
+            <li><a href="#get-vangsten">http://37.97.190.125/vossenjacht/api/vangsten</a></li>
+            <li><a href="#get-vangsten-groep">http://37.97.190.125/vossenjacht/api/vangsten/groep/:groep</a></li>
+            <li><a href="#get-vangsten-vos">http://37.97.190.125/vossenjacht/api/vangsten/vos/:vos</a></li>
+            <li><a href="#get-vangsten-laatste">http://37.97.190.125/vossenjacht/api/vangsten/laatste</a></li>
+            <li><a href="#get-vos-verwijder">http://37.97.190.125/vossenjacht/api/vos/verwijder/:id</a></li>
+         </ul>
+         <h3>POST</h3>
+         <ul>
+            <li><a href="#post-vos-maak">http://37.97.190.125/vossenjacht/api/vos/maak</a></li>
+         </ul>
+         <h2>Gebruik</h2>
+         <h3 id="get-vossen">GET /vossen</h3>
+         <p>Levert een lijst van alle vossen in de database, inclusief het aantal keren dat de vossen in totaal gevangen zijn.</p>
+         <h4>Request voorbeeld</h4>
+         <pre><code>GET /vossen HTTP/1.1</code></pre>
+         <h4>Response voorbeeld</h4>
+         <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[{
+  "_id":"57961503feb27b6025040331",
+  "naam":"Clubhuis",
+  "nummer":1,
+  "beschrijving":"Het clubhuis van de Scouting sinds 1985.",
+  "locatieLong":4.642866,
+  "locatieLat":51.930178,
+  "gevangen":0,
+  "__v":0
+},
+{
+  "_id":"57961516feb27b6025040332",
+  "naam":"Tuindorp",
+  "nummer":2,
+  "beschrijving":"Hier stond het vroegere clubhuis van Scouting Ouderkerk.",
+  "locatieLong":4.639997,
+  "locatieLat":51.932238,
+  "gevangen":0,
+  "__v":0
+}]</samp></pre>
+
+         <h3 id="get-groepen">GET /groepen</h3>
+         <p>Een lijst van alle groepen in de database.</p>
+         <h4>Request voorbeeld</h4>
+         <pre><code>GET /groepen HTTP/1.1</code></pre>
+         <h4>Response voorbeeld</h4>
+         <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+   {
+      "_id":"5798ae5e42c4014c0fb9e987",
+      "nummer":1,
+      "vangsten":0,
+      "__v":0
+   },
+   {
+      "_id":"5798e909ec8e0c29086303ba",
+      "nummer":4,
+      "vangsten":0,
+      "__v":0
+   }
+]</samp></pre>
+
+         <h3 id="get-stand">GET /stand</h3>
+         <p>De huidige tussenstand van de vossenjacht. Is gesorteerd op volgorde van hoogste naar laagste klassering. Nummer is het nummer van de groep...</p>
+         <h4>Request voorbeeld</h4>
+         <pre><code>GET /stand HTTP/1.1</code></pre>
+         <h4>Response voorbeeld</h4>
+         <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+   {
+      "_id":"5798ae5e42c4014c0fb9e987",
+      "nummer":1,
+      "vangsten":0,
+      "__v":0,
+      "rank":1
+   },
+   {
+      "_id":"5798e909ec8e0c29086303ba",
+      "nummer":4,
+      "vangsten":0,
+      "__v":0,
+      "rank":2
+   }
+]</samp></pre>
+
+         <h3 id="get-vangsten">GET /vangsten</h3>
+         <p>Alle vangsten die ingevoerd zijn. Kan dus een lange lijst worden...</p>
+         <h4>Request voorbeeld</h4>
+         <pre><code>GET /vangsten HTTP/1.1</code></pre>
+         <h4>Response voorbeeld</h4>
+         <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+   {
+      "_id":"579909c3ab916f3806d02c0f",
+      "groepId":1,
+      "vosId":"57961503feb27b6025040331",
+      "tijd":"2016-07-27T19:21:39.469Z",
+      "__v":0
+   },
+   {
+      "_id":"579909caab916f3806d02c11",
+      "groepId":1,
+      "vosId":"57961516feb27b6025040332",
+      "tijd":"2016-07-27T19:21:46.446Z",
+      "__v":0
+   }
+]</samp></pre>
+
+      <h3 id="get-vangsten-groep">GET /vangsten/groep/:groep</h3>
+      <p>Alle vangsten van de groep met nummer :groep.</p>
+      <h4>Request voorbeeld</h4>
+      <pre><code>GET /vangsten/groep/1 HTTP/1.1</code></pre>
+      <h4>Response voorbeeld</h4>
+      <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+   {
+      "_id":"579909c3ab916f3806d02c0f",
+      "groepId":1,
+      "vosId":"57961503feb27b6025040331",
+      "tijd":"2016-07-27T19:21:39.469Z",
+      "__v":0
+   },
+   {
+      "_id":"579909caab916f3806d02c11",
+      "groepId":1,
+      "vosId":"57961516feb27b6025040332",
+      "tijd":"2016-07-27T19:21:46.446Z",
+      "__v":0
+   }
+]</samp></pre>
+
+      <h3 id="get-vangsten-vos">GET /vangsten/vos/:vos</h3>
+      <p>Alle vangsten van de vos met _id :vos.</p>
+      <h4>Request voorbeeld</h4>
+      <pre><code>GET /vangsten/vos/57961503feb27b6025040331 HTTP/1.1</code></pre>
+      <h4>Response voorbeeld</h4>
+      <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+   {
+      "_id": "579a0b782f24e818129be8e6",
+      "groepId": 1,
+      "vosId": "57961503feb27b6025040331",
+      "tijd": "2016-07-28T13:41:12.760Z",
+      "__v": 0
+   }
+]</samp></pre>
+
+      <h3 id="get-vangsten-laatste">GET /vangsten/laatste</h3>
+      <p>Geeft de laatst ingevoerde vangst terug.</p>
+      <h4>Request voorbeeld</h4>
+      <pre><code>GET /vangsten/laatste HTTP/1.1</code></pre>
+      <h4>Response voorbeeld</h4>
+      <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+   "_id": "579a0b832f24e818129be8e8",
+   "groepId": 1,
+   "vosId": "57961516feb27b6025040332",
+   "tijd": "2016-07-28T13:41:23.599Z",
+   "__v": 0
+}</samp></pre>
+
+      <h3 id="get-vos-verwijder">GET /vos/verwijder/:id</h3>
+      <p>Verwijder de vos met het _id :id.</p>
+      <h4>Request voorbeeld</h4>
+      <pre><code>GET /vos/verwijder/579a09f22f24e818129be8e3 HTTP/1.1</code></pre>
+      <h4>Response voorbeeld</h4>
+      <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{"Vos verwijderd: ":"579a09f22f24e818129be8e3"}</samp></pre>
+
+      <h3 id="get-vangsten-laatste">GET /vangsten/laatste</h3>
+      <p>Geeft de laatst ingevoerde vangst terug.</p>
+      <h4>Request voorbeeld</h4>
+      <pre><code>GET /vangsten/laatste HTTP/1.1</code></pre>
+      <h4>Response voorbeeld</h4>
+      <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+   "_id": "579a0b832f24e818129be8e8",
+   "groepId": 1,
+   "vosId": "57961516feb27b6025040332",
+   "tijd": "2016-07-28T13:41:23.599Z",
+   "__v": 0
+}</samp></pre>
+
+      <h3 id="post-vos-maak">POST /vos/maak</h3>
+      <p>Maak een nieuwe vos in de database aan.</p>
+      <h4>Request voorbeeld</h4>
+      <pre><code>POST /vos/maak HTTP/1.1
+{  "naam": "Christiaan de Wet",
+   "nummer": "15",
+   "beschrijving": "Naamgever CDW, uitvinder concentratiekampen",
+   "locatieLong": "4.642866",
+   "locatieLat": "51.930178"
+}</code></pre>
+      <h4>Response voorbeeld</h4>
+      <pre><samp>HTTP/1.1 200 OK
+Content-Type: application/json
+
+"Nieuwe vos opgeslagen!"</samp></pre>
+   </article>
+</body>
+</html>

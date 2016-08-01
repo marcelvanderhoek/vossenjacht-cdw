@@ -1,0 +1,143 @@
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class*="pure-u"] {
+  font-family: 'Lato', sans-serif;
+  color: white;
+  font-size: 16px;
+}
+
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  max-width: 100%;
+  height: 300px;
+  max-height: 100%;
+  background-color: #06b3db;
+  text-align: center;
+  padding: 40px 0 0 0;
+  -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
+-moz-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
+box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
+}
+
+#modal p {
+  padding: 10px;
+  font-size: 1.75em;
+}
+
+#modal h1 {
+  padding:10px 0 0 0;
+}
+
+#modal img {
+  width: 50%;
+  height: auto;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#modl p {
+  font-size: 1.5rem;
+}
+#sluiten {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: white;
+  color: #06b3db;
+  font-size: 1.5em;
+}
+.blokje {
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 1rem;
+  border-top: 6px solid white;
+}
+
+.blokje:nth-of-type(odd) {
+  border-left: 6px solid white;
+  border-right: 3px solid white;
+} 
+.blokje:nth-of-type(even) {
+  border-left: 3px solid white;
+  border-right: 6px solid white;
+} 
+.blokje p {
+  font-style: normal;
+  font-size: 1.5em;
+}
+.oranje {
+background: #ffb347; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ffb347 , #ffcc33); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ffb347 , #ffcc33); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.blauw {
+  background: #00c6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #00c6ff , #0072ff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #00c6ff , #0072ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.rood {
+background: #EB3349; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #EB3349 , #F45C43); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #EB3349 , #F45C43); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+}
+.groen {
+background: #1D976C; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #1D976C , #4bb478); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #1D976C , #4bb478); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+}
+
+#header {
+  background-image: url('../img/achtergrond-small.jpg');
+  text-align: center;
+border: 6px solid white;
+border-bottom: 0;
+
+  font-weight: bold;
+  font-size: 2em;
+  line-height: .5em;
+  margin: 0
+}
+
+#header p img {
+  max-width: 70px
+}
+
+#ranglijst p a {
+  color: white;
+}
+
+.pure-table {
+  margin: 6px;
+  width: calc(100% - 12px);
+  color: #555;
+}
+
+.actief {
+  background-color: #06b3db;
+  color: white;
+}
+
+.rank {
+  font-weight: bold;
+}
+
+.terug {
+  float: left;
+margin-left: 12px;
+margin-top: -6px; /* Nog ff naar kijken */
+}
+
+.terug a {
+  color: white;
+}

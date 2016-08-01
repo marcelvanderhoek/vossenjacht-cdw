@@ -1,0 +1,65 @@
+<% include header %>
+<!-- CONTENT START HIER -->
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<h1 class="page-header">Vossen</h1>
+	<div class="table-responsive">
+		<table class="table table-striped" id="vossen">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Naam</th>
+					<th>Beschrijving</th>
+					<th>LocatieLat</th>
+					<th>LocatieLong</th>
+					<th>Aantal keren gevangen</th>
+					<th>_id</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody class="vossen">
+				<% for(var i=0; i<vossen.length; i++) { %>
+				    <tr>
+				    	<td><%=vossen[i].nummer %></td>
+				    	<td><%=vossen[i].naam %></td>
+				    	<td><%=vossen[i].beschrijving %></td>
+				    	<td><%=vossen[i].locatieLat %></td>
+				    	<td><%=vossen[i].locatieLong %></td>
+				    	<td><%=vossen[i].gevangen %></td>
+				    	<td><%=vossen[i]._id %></td>
+				    	<td><a href="../api/vos/verwijder/<%=vossen[i]._id %>" class="verwijder-vos">Verwijderen</a></td>
+				    </tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+	<h2 class="sub-header">Nieuwe vos aanmaken</h2>
+
+	<form id="form-nieuwevos">
+		<div class="form-group">
+			<label for="nummer">Nummer</label>
+			<input type="number" step="any" class="form-control" id="nummer" placeholder="Nummer">
+		</div>
+		<div class="form-group">
+			<label for="naam">Naam</label>
+			<input type="text" class="form-control" id="naam" placeholder="Naam">
+		</div>						
+		<div class="form-group">
+			<label for="omschrijving">Omschrijving</label>
+			<input type="text" class="form-control" id="omschrijving" placeholder="Omschrijving">
+		</div>
+		<div class="form-group">
+			<label for="locatielat">Locatie (lat)</label>
+			<input type="number" step="any" class="form-control" id="locatielat" placeholder="Locatie lat">
+		</div>
+		<div class="form-group">
+			<label for="locatielong">Locatie (long)</label>
+			<input type="number" step="any" class="form-control" id="locatielong" placeholder="Locatie long">
+		</div>
+		<button type="submit" class="btn btn-default" id="nieuwevos">Opslaan</button>
+	</form>
+
+</div>
+
+<!-- EINDE CONTENT -->
+<% include footer %>

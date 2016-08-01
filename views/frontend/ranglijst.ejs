@@ -1,0 +1,31 @@
+<% include header %>
+<div class="pure-g">
+	<div class="pure-u-1-1" id="header">
+		<p><span class="terug"><a href="/vossenjacht"><i class="fa fa-step-backward" aria-hidden="true"></i></a></span>Ranglijst</p>
+	</div>
+</div>
+<div class="pure-g">
+<div class="pure-u-1-1" id="ranglijst">
+<table class="pure-table pure-table-horizontal">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Groep</th>
+            <th>Vossen gevangen</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% for(var i=0; i<ranglijst.length; i++) { %>
+        <tr<%if(ranglijst[i].actief === true) { %> class="actief" <% } %>>
+            <td class="rank"><%=ranglijst[i].rank %></td>
+            <td><%=ranglijst[i].nummer %></td>
+            <td><%=ranglijst[i].vangsten %></td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+
+</div>
+</div>
+<% include footer %>

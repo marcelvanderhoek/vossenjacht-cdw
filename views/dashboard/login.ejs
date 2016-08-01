@@ -1,0 +1,24 @@
+<% include header %>				
+<!-- CONTENT START HIER -->
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<h1 class="page-header">Inloggen</h1>
+	<div class="row">
+		<div class="col-xs-6 col-sm-3">
+			<form role="form" action="./login" method="post" id="inloggen">
+				<div class="form-group">
+					<label for="Gebruikersnaam">Gebruikersnaam:</label>
+  					<input type="text" name="gebruikersnaam">
+				</div>
+				<div class="form-group">
+					<label for="Wachtwoord">Wachtwoord:</label>
+  					<input type="password" name="wachtwoord">
+				</div>
+				<button type="submit" class="btn btn-default" id="inloggen">Inloggen</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- EINDE CONTENT -->
+<% include footer %>
